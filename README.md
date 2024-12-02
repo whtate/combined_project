@@ -26,8 +26,8 @@ Before you begin, ensure you have the following installed on your machine:
 Open your terminal and clone the repository:
 
 ```bash
-git clone <YOUR_GITHUB_REPO_URL>
-cd waddle_poc
+git clone https://github.com/whtate/combined_project
+cd combined_project
 ```
 
 *Replace `<YOUR_GITHUB_REPO_URL>` with the URL of your Git repository.*
@@ -70,6 +70,7 @@ The project uses environment variables to manage sensitive information like the 
    SECRET_KEY=your_django_secret_key_here
    MAPBOX_ACCESS_TOKEN=your_mapbox_access_token_here
    DEBUG=True
+
    ```
 
    - **SECRET_KEY:** Generate a unique secret key for Django. You can use Django's `get_random_secret_key` method:
