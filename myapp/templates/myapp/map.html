@@ -1,0 +1,97 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Waddle - Map</title>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css' rel='stylesheet' />
+    <link rel="stylesheet" href="{% static 'myapp/style.css' %}">
+
+    <style>
+        #map {
+            height: 100vh;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+        }
+        body { margin: 0; padding: 0; }
+        .add-event-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 1;
+            text-decoration: none;
+        }
+        .navbar {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 1;
+        }
+        .navbar a {
+            margin-left: 10px;
+            color: white;
+            text-decoration: none;
+            padding: 8px 12px;
+            background-color: rgba(0,0,0,0.5);
+            border-radius: 4px;
+        }
+        .navbar form {
+            display: inline;
+        }
+        .navbar form button {
+            background: none;
+            border: none;
+            color: white;
+            text-decoration: none;
+            padding: 8px 12px;
+            background-color: rgba(0,0,0,0.5);
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <a href="{% url 'add_event' %}" class="add-event-button">Add Event</a>
+    <div class="navbar">
+        {% if user.is_authenticated %}
+            <span>Welcome, {{ user.username }}!</span>
+            <form method="post" action="{% url 'logout' %}">
+                {% csrf_token %}
+                <button type="submit">Logout</button>
+            </form>
+        {% else %}
+            <a href="{% url 'login' %}">Login</a>
+            <a href="{% url 'register' %}">Register</a>
+        {% endif %}
+    </div>
+    <div id="map"></div>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js'></script>
+    <script>
+        mapboxgl.accessToken = '{{ mapbox_access_token }}';
+        const map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v12',
+            center: [-81.0348, 33.9948],
+            zoom: 15
+        });
+
+        {% for event in events %}
+        new mapboxgl.Marker({ color: 'red' })
+            .setLngLat([{{ event.longitude }}, {{ event.latitude }}])
+            .setPopup(
+                new mapboxgl.Popup({ offset: 25 })
+                    .setHTML(`<h3>{{ event.title }}</h3><p>{{ event.description }}</p><p>{{ event.date }}</p>`)
+            )
+            .addTo(map);
+        {% endfor %}
+    </script>
+</body>
+</html>

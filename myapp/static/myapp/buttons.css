@@ -1,0 +1,87 @@
+/* Button styles */
+.btn {
+    display: inline-flex; /* Make sure buttons behave consistently as inline-flex elements */
+    justify-content: center; /* Horizontally center the button text */
+    align-items: center; /* Vertically center the button text */
+    margin-top: 10px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #28a745;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: Arial, sans-serif; /* Ensure font consistency */
+    font-size: 16px;
+    font-weight: bold;
+}
+
+
+.btn:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+/* Garnet button style */
+.garnet-button {
+    background-color: #73000a; /* Garnet color */
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.garnet-button:hover {
+    background-color: #a31d2a; /* Lighter shade of garnet */
+}
+
+/* Ensure buttons in the footer section of group boxes are displayed in a row */
+.button-container {
+    display: flex;
+    gap: 10px; /* Add space between buttons */
+}
+
+.group-link {
+    display: inline-block;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #007BFF; /* Blue text */
+    background-color: white; /* White background */
+    border: 1px solid #007BFF; /* Blue border */
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.group-link:hover {
+    background-color: #007BFF; /* Blue background on hover */
+    color: white; /* White text on hover */
+}
+
+form .btn {
+    display: inline-flex; /* Ensure consistent display with <a> */
+    justify-content: center; /* Horizontally center the text */
+    align-items: center; /* Vertically center the text */
+    font-family: Arial, sans-serif; /* Ensure font consistency */
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #73000a; /* Garnet color */
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: none;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Flexbox container for buttons */
+.button-container {
+    display: flex;
+    gap: 10px;  /* Add space between buttons */
+    align-items: center;  /* Ensure buttons are vertically aligned */
+    justify-content: flex-start; /* Ensure buttons are aligned left */
+    margin-top: 10px;
+}

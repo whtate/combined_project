@@ -1,0 +1,93 @@
+.group-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));  /* Responsive grid layout */
+    gap: 20px;
+}
+
+/* Group box (card) styling */
+.group-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin-bottom: 20px;
+    height: 300px; /* Set a fixed height for the box */
+    overflow: hidden; /* Hide content that overflows the box */
+}
+
+/* Group content styling (scrollable section) */
+.group-content {
+    flex-grow: 1;
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding-right: 10px; /* Add padding to avoid scrollbar overlap */
+    max-height: 300px; /* Adjust to control the size of the scrollable area */
+}
+
+/* Footer (button) at the bottom */
+.group-footer {
+    display: flex;
+    justify-content: space-between /* Align buttons horizontally with space between */
+}
+
+.group-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Styling for the "View Group Details" button */
+.group-link {
+    display: inline-block;
+    text-decoration: none;
+    color: #007BFF;
+    border: 1px solid #007BFF;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.group-link:hover {
+    background-color: #007BFF;
+    color: #fff;
+}
+
+/* Ensure long descriptions wrap and do not overflow */
+.group-box p {
+    word-wrap: break-word;  /* Break long words onto the next line */
+    margin-bottom: 10px;
+}
+
+#my-groups-container .group-box {
+    height: 400px;  /* Increase height for the my-groups page */
+    width: 300px;
+    max-height: none;  /* Remove the max height if it exists */
+    overflow-y: auto;  /* Ensure content can scroll if it's too long */
+}
+#my-groups-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));  /* Adjust column width */
+    gap: 30px;  /* Increase the gap between the boxes */
+}
+
+#my-groups-container .group-box {
+    height: 400px;  /* Keep the larger height */
+    max-height: none;
+    overflow-y: auto;
+    margin: 0 20px;  /* Add margin for spacing between boxes */
+}
+
+button.logoutbutton {
+    padding: 10px 15px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+}

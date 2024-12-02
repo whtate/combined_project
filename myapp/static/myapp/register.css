@@ -1,0 +1,66 @@
+/* Centering the form */
+.center-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Form structure */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 300px; /* Adjusts the width of the form */
+}
+
+/* Label and input field structure */
+form div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+form label {
+    text-align: left; /* Aligns the text of the label to the left */
+    margin-bottom: 5px;
+}
+
+form input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Button styling */
+form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+/* Rooster image */
+.rooster-image {
+    width: 150px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+/* Header styling */
+h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}

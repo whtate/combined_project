@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}My App{% endblock %}</title>
+
+    <!-- Global styles -->
+    <link rel="stylesheet" href="{% static 'myapp/style.css' %}">
+
+    <!-- Buttons CSS -->
+    <link rel="stylesheet" href="{% static 'myapp/buttons.css' %}">
+
+    <!-- Forms CSS (if forms are present across multiple pages) -->
+    <link rel="stylesheet" href="{% static 'myapp/forms.css' %}">
+</head>
+<body>
+
+    {% if user.is_authenticated %}
+    <p>Welcome, {{ user.username }}!</p>
+    <form method="POST" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button type="submit" class="logoutbutton">Logout</button>
+    </form>
+    <a href="{% url 'my_groups' %}" class="btn btn-secondary">My Groups</a>  <!-- Add this button -->
+{% else %}
+    <p><a href="{% url 'login' %}">Login</a> | <a href="{% url 'register' %}">Register</a></p>
+{% endif %}
+
+
+
+    <div>
+        {% block content %}
+        <!-- Content from other templates will go here -->
+        {% endblock %}
+    </div>
+
+</body>
+</html>
